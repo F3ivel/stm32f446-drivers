@@ -15,6 +15,9 @@
 #define BASIC_TIMER_COUNTER_ENABLE 0x00000001
 #define BASIC_TIMER_COUNTER_DISABLE 0xFFFFFFFE
 
+#define BASIC_TIMER_UPDATE_EVENT_ENABLE 0xFFFFFFFD
+#define BASIC_TIMER_UPDATE_EVENT_DISABLE 0x00000002
+
 // struct definitions
 typedef struct
 {
@@ -35,5 +38,7 @@ typedef struct
 // function prototypes
 void Basic_Timer_Counter_Enable(Basic_Timer *basic_timer);
 void Basic_Timer_Counter_Disable(Basic_Timer *basic_timer);
+void Basic_Timer_Update_Event_Enable(Basic_Timer *basic_timer);
+void Basic_Timer_Update_Event_Disable(Basic_Timer *basic_timer);
 
 #endif // BASIC_TIMER_H
