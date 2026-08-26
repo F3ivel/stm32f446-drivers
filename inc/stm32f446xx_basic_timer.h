@@ -18,6 +18,9 @@
 #define BASIC_TIMER_UPDATE_EVENT_ENABLE 0xFFFFFFFD
 #define BASIC_TIMER_UPDATE_EVENT_DISABLE 0x00000002
 
+#define BASIC_TIMER_UPDATE_REQUEST_SOURCE_ANY 0xFFFFFFFB
+#define BASIC_TIMER_UPDATE_REQUEST_SOURCE_OVERFLOW_UNDERFLOW 0x00000004
+
 // struct definitions
 typedef struct
 {
@@ -40,5 +43,6 @@ void Basic_Timer_Counter_Enable(Basic_Timer *basic_timer);
 void Basic_Timer_Counter_Disable(Basic_Timer *basic_timer);
 void Basic_Timer_Update_Event_Enable(Basic_Timer *basic_timer);
 void Basic_Timer_Update_Event_Disable(Basic_Timer *basic_timer);
+void Basic_Timer_Set_Update_Request_Source(Basic_Timer *basic_timer, uint32_t update_request_source);
 
 #endif // BASIC_TIMER_H
