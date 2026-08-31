@@ -69,3 +69,47 @@ void Basic_Timer_Set_Update_Request_Source(Basic_Timer *basic_timer, uint32_t up
         return;
     }
 }
+
+void Basic_Timer_One_Pulse_Mode_Enable(Basic_Timer *basic_timer)
+{
+    if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
+    {
+        // No valid Basic_Timer peripheral address were given
+        return;
+    }
+
+    basic_timer->CR1 |= BASIC_TIMER_ONE_PULSE_MODE_ENABLE;
+}
+
+void Basic_Timer_One_Pulse_Mode_Disable(Basic_Timer *basic_timer)
+{
+    if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
+    {
+        // No valid Basic_Timer peripheral address were given
+        return;
+    }
+
+    basic_timer->CR1 &= BASIC_TIMER_ONE_PULSE_MODE_DISABLE;
+}
+
+void Basic_Timer_Auto_Reload_Preload_Enable(Basic_Timer *basic_timer)
+{
+    if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
+    {
+        // No valid Basic_Timer peripheral address were given
+        return;
+    }
+
+    basic_timer->CR1 |= BASIC_TIMER_AUTO_RELOAD_PRELOAD_ENABLE;
+}
+
+void Basic_Timer_Auto_Reload_Preload_Disable(Basic_Timer *basic_timer)
+{
+    if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
+    {
+        // No valid Basic_Timer peripheral address were given
+        return;
+    }
+
+    basic_timer->CR1 &= BASIC_TIMER_AUTO_RELOAD_PRELOAD_DISABLE;
+}
