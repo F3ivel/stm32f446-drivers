@@ -113,3 +113,47 @@ void Basic_Timer_Auto_Reload_Preload_Disable(Basic_Timer *basic_timer)
 
     basic_timer->CR1 &= BASIC_TIMER_AUTO_RELOAD_PRELOAD_DISABLE;
 }
+
+void Basic_Timer_Update_Dma_Request_Enable(Basic_Timer *basic_timer)
+{
+    if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
+    {
+        // No valid Basic_Timer peripheral address were given
+        return;
+    }
+
+    basic_timer->DIER |= BASIC_TIMER_UPDATE_DMA_REQUEST_ENABLE;
+}
+
+void Basic_Timer_Update_Dma_Request_Disable(Basic_Timer *basic_timer)
+{
+    if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
+    {
+        // No valid Basic_Timer peripheral address were given
+        return;
+    }
+
+    basic_timer->DIER &= BASIC_TIMER_UPDATE_DMA_REQUEST_DISABLE;
+}
+
+void Basic_Timer_Update_Interrupt_Enable(Basic_Timer *basic_timer)
+{
+    if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
+    {
+        // No valid Basic_Timer peripheral address were given
+        return;
+    }
+
+    basic_timer->DIER |= BASIC_TIMER_UPDATE_INTERRUPT_ENABLE;
+}
+
+void Basic_Timer_Update_Interrupt_Disable(Basic_Timer *basic_timer)
+{
+    if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
+    {
+        // No valid Basic_Timer peripheral address were given
+        return;
+    }
+
+    basic_timer->DIER &= BASIC_TIMER_UPDATE_INTERRUPT_DISABLE;
+}

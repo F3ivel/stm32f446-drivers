@@ -27,6 +27,12 @@
 #define BASIC_TIMER_AUTO_RELOAD_PRELOAD_ENABLE 0x00000080
 #define BASIC_TIMER_AUTO_RELOAD_PRELOAD_DISABLE 0xFFFFFF7F
 
+#define BASIC_TIMER_UPDATE_DMA_REQUEST_ENABLE 0x00000100
+#define BASIC_TIMER_UPDATE_DMA_REQUEST_DISABLE 0xFFFFFEFF
+
+#define BASIC_TIMER_UPDATE_INTERRUPT_ENABLE 0x00000001
+#define BASIC_TIMER_UPDATE_INTERRUPT_DISABLE 0xFFFFFFF0
+
 // struct definitions
 typedef struct
 {
@@ -54,5 +60,9 @@ void Basic_Timer_One_Pulse_Mode_Enable(Basic_Timer *basic_timer);
 void Basic_Timer_One_Pulse_Mode_Disable(Basic_Timer *basic_timer);
 void Basic_Timer_Auto_Reload_Preload_Enable(Basic_Timer *basic_timer);
 void Basic_Timer_Auto_Reload_Preload_Disable(Basic_Timer *basic_timer);
+void Basic_Timer_Update_Dma_Request_Enable(Basic_Timer *basic_timer);
+void Basic_Timer_Update_Dma_Request_Disable(Basic_Timer *basic_timer);
+void Basic_Timer_Update_Interrupt_Enable(Basic_Timer *basic_timer);
+void Basic_Timer_Update_Interrupt_Disable(Basic_Timer *basic_timer);
 
 #endif // BASIC_TIMER_H
