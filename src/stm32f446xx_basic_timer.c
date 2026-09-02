@@ -157,3 +157,30 @@ void Basic_Timer_Update_Interrupt_Disable(Basic_Timer *basic_timer)
 
     basic_timer->DIER &= BASIC_TIMER_UPDATE_INTERRUPT_DISABLE;
 }
+
+Basic_Timer_Update_Interrupt_Flag_Status Basic_Timer_Get_Update_Interrupt_Flag(Basic_Timer *basic_timer)
+{
+    if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
+    {
+        // No valid Basic_Timer peripheral address were given
+        return BASIC_TIMER_UPDATE_INTERRUPT_FLAG_ERROR;
+    }
+
+    if ((basic_timer->SR & BASIC_TIMER_UPDATE_INTERRUPT_FLAG) != 0U)
+    {
+        return BASIC_TIMER_UPDATE_INTERRUPT_FLAG_SET;
+    }
+
+    return BASIC_TIMER_UPDATE_INTERRUPT_FLAG_NOT_SET;
+}
+
+void Basic_Timer_Generate_Update_Event(Basic_Timer *basic_timer)
+{
+    if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
+    {
+        // No valid Basic_Timer peripheral address were given
+        return;
+    }
+
+    basic_timer->EGR |= BASIC_TIMER_GENERATE_UPDATE_EVENT;
+}
