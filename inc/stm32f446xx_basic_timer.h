@@ -45,6 +45,12 @@ typedef enum
     BASIC_TIMER_UPDATE_INTERRUPT_FLAG_SET = 1
 } Basic_Timer_Update_Interrupt_Flag_Status;
 
+typedef enum
+{
+    BASIC_TIMER_STATUS_ERROR = -1,
+    BASIC_TIMER_STATUS_OK = 0
+} Basic_Timer_Status;
+
 // struct definitions
 typedef struct
 {
@@ -78,5 +84,10 @@ void Basic_Timer_Update_Interrupt_Enable(Basic_Timer *basic_timer);
 void Basic_Timer_Update_Interrupt_Disable(Basic_Timer *basic_timer);
 Basic_Timer_Update_Interrupt_Flag_Status Basic_Timer_Get_Update_Interrupt_Flag(Basic_Timer *basic_timer);
 void Basic_Timer_Generate_Update_Event(Basic_Timer *basic_timer);
+Basic_Timer_Status Basic_Timer_Get_Counter_Value(Basic_Timer *basic_timer, uint16_t *cnt_value);
+void Basic_Timer_Set_Prescaler_Value(Basic_Timer *basic_timer, uint16_t psc_value);
+Basic_Timer_Status Basic_Timer_Get_Prescaler_Value(Basic_Timer *basic_timer, uint16_t *psc_value);
+void Basic_Timer_Set_Auto_Reload_Value(Basic_Timer *basic_timer, uint16_t arr_value);
+Basic_Timer_Status Basic_Timer_Get_Auto_Reload_Value(Basic_Timer *basic_timer, uint16_t *arr_value);
 
 #endif // BASIC_TIMER_H

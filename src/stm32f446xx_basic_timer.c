@@ -1,5 +1,6 @@
 
 #include "stm32f446xx_basic_timer.h"
+#include <stddef.h>
 
 void Basic_Timer_Counter_Enable(Basic_Timer *basic_timer)
 {
@@ -183,4 +184,77 @@ void Basic_Timer_Generate_Update_Event(Basic_Timer *basic_timer)
     }
 
     basic_timer->EGR |= BASIC_TIMER_GENERATE_UPDATE_EVENT;
+}
+
+Basic_Timer_Status Basic_Timer_Get_Counter_Value(Basic_Timer *basic_timer, uint16_t *cnt_value)
+{
+    if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
+    {
+        // No valid Basic_Timer peripheral address were given
+        return BASIC_TIMER_STATUS_ERROR;
+    }
+
+    if (cnt_value == NULL)
+    {
+        return BASIC_TIMER_STATUS_ERROR;
+    }
+
+    *cnt_value = (uint16_t)basic_timer->CNT;
+    return BASIC_TIMER_STATUS_OK;
+}
+
+void Basic_Timer_Set_Prescaler_Value(Basic_Timer *basic_timer, uint16_t psc_value)
+{
+    if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
+    {
+        // No valid Basic_Timer peripheral address were given
+        return;
+    }
+
+    basic_timer->PSC = psc_value;
+}
+
+Basic_Timer_Status Basic_Timer_Get_Prescaler_Value(Basic_Timer *basic_timer, uint16_t *psc_value)
+{
+    if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
+    {
+        // No valid Basic_Timer peripheral address were given
+        return BASIC_TIMER_STATUS_ERROR;
+    }
+
+    if (psc_value == NULL)
+    {
+        return BASIC_TIMER_STATUS_ERROR;
+    }
+
+    *psc_value = (uint16_t)basic_timer->PSC;
+    return BASIC_TIMER_STATUS_OK;
+}
+
+void Basic_Timer_Set_Auto_Reload_Value(Basic_Timer *basic_timer, uint16_t arr_value)
+{
+    if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
+    {
+        // No valid Basic_Timer peripheral address were given
+        return;
+    }
+
+    basic_timer->ARR = arr_value;
+}
+
+Basic_Timer_Status Basic_Timer_Get_Auto_Reload_Value(Basic_Timer *basic_timer, uint16_t *arr_value)
+{
+    if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
+    {
+        // No valid Basic_Timer peripheral address were given
+        return BASIC_TIMER_STATUS_ERROR;
+    }
+
+    if (arr_value == NULL)
+    {
+        return BASIC_TIMER_STATUS_ERROR;
+    }
+
+    *arr_value = (uint16_t)basic_timer->ARR;
+    return BASIC_TIMER_STATUS_OK;
 }
