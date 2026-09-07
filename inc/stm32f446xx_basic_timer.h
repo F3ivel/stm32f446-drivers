@@ -27,6 +27,11 @@
 #define BASIC_TIMER_AUTO_RELOAD_PRELOAD_ENABLE 0x00000080
 #define BASIC_TIMER_AUTO_RELOAD_PRELOAD_DISABLE 0xFFFFFF7F
 
+#define BASIC_TIMER_MASTER_MODE_MASK (7U << 4)
+#define BASIC_TIMER_MASTER_MODE_RESET 0x00000000
+#define BASIC_TIMER_MASTER_MODE_ENABLE 0x00000010
+#define BASIC_TIMER_MASTER_MODE_UPDATE 0x00000020
+
 #define BASIC_TIMER_UPDATE_DMA_REQUEST_ENABLE 0x00000100
 #define BASIC_TIMER_UPDATE_DMA_REQUEST_DISABLE 0xFFFFFEFF
 
@@ -78,6 +83,7 @@ void Basic_Timer_One_Pulse_Mode_Enable(Basic_Timer *basic_timer);
 void Basic_Timer_One_Pulse_Mode_Disable(Basic_Timer *basic_timer);
 void Basic_Timer_Auto_Reload_Preload_Enable(Basic_Timer *basic_timer);
 void Basic_Timer_Auto_Reload_Preload_Disable(Basic_Timer *basic_timer);
+void Basic_Timer_Master_Mode_Selection(Basic_Timer *basic_timer, uint32_t master_mode);
 void Basic_Timer_Update_Dma_Request_Enable(Basic_Timer *basic_timer);
 void Basic_Timer_Update_Dma_Request_Disable(Basic_Timer *basic_timer);
 void Basic_Timer_Update_Interrupt_Enable(Basic_Timer *basic_timer);

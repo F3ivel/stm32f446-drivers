@@ -6,7 +6,7 @@ void Basic_Timer_Counter_Enable(Basic_Timer *basic_timer)
 {
     if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
     {
-        // No valid Basic_Timer peripheral address were given
+        // No valid Basic_Timer peripheral address was given
         return;
     }
 
@@ -17,7 +17,7 @@ void Basic_Timer_Counter_Disable(Basic_Timer *basic_timer)
 {
     if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
     {
-        // No valid Basic_Timer peripheral address were given
+        // No valid Basic_Timer peripheral address was given
         return;
     }
 
@@ -28,7 +28,7 @@ void Basic_Timer_Update_Event_Enable(Basic_Timer *basic_timer)
 {
     if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
     {
-        // No valid Basic_Timer peripheral address were given
+        // No valid Basic_Timer peripheral address was given
         return;
     }
 
@@ -39,7 +39,7 @@ void Basic_Timer_Update_Event_Disable(Basic_Timer *basic_timer)
 {
     if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
     {
-        // No valid Basic_Timer peripheral address were given
+        // No valid Basic_Timer peripheral address was given
         return;
     }
 
@@ -50,7 +50,7 @@ void Basic_Timer_Set_Update_Request_Source(Basic_Timer *basic_timer, uint32_t up
 {
     if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
     {
-        // No valid Basic_Timer peripheral address were given
+        // No valid Basic_Timer peripheral address was given
         return;
     }
 
@@ -66,7 +66,7 @@ void Basic_Timer_Set_Update_Request_Source(Basic_Timer *basic_timer, uint32_t up
     }
     else
     {
-        // No valid value for update_request_source were given
+        // No valid value for update_request_source was given
         return;
     }
 }
@@ -75,7 +75,7 @@ void Basic_Timer_One_Pulse_Mode_Enable(Basic_Timer *basic_timer)
 {
     if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
     {
-        // No valid Basic_Timer peripheral address were given
+        // No valid Basic_Timer peripheral address was given
         return;
     }
 
@@ -86,7 +86,7 @@ void Basic_Timer_One_Pulse_Mode_Disable(Basic_Timer *basic_timer)
 {
     if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
     {
-        // No valid Basic_Timer peripheral address were given
+        // No valid Basic_Timer peripheral address was given
         return;
     }
 
@@ -97,7 +97,7 @@ void Basic_Timer_Auto_Reload_Preload_Enable(Basic_Timer *basic_timer)
 {
     if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
     {
-        // No valid Basic_Timer peripheral address were given
+        // No valid Basic_Timer peripheral address was given
         return;
     }
 
@@ -108,18 +108,36 @@ void Basic_Timer_Auto_Reload_Preload_Disable(Basic_Timer *basic_timer)
 {
     if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
     {
-        // No valid Basic_Timer peripheral address were given
+        // No valid Basic_Timer peripheral address was given
         return;
     }
 
     basic_timer->CR1 &= BASIC_TIMER_AUTO_RELOAD_PRELOAD_DISABLE;
 }
 
+void Basic_Timer_Master_Mode_Selection(Basic_Timer *basic_timer, uint32_t master_mode)
+{
+    if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
+    {
+        // No valid Basic_Timer peripheral address was given
+        return;
+    }
+
+    if ((master_mode != BASIC_TIMER_MASTER_MODE_RESET) && (master_mode != BASIC_TIMER_MASTER_MODE_ENABLE) && (master_mode != BASIC_TIMER_MASTER_MODE_UPDATE))
+    {
+        // No valid value for master_mode was given
+        return;
+    }
+
+    basic_timer->CR2 &= ~BASIC_TIMER_MASTER_MODE_MASK;
+    basic_timer->CR2 |= master_mode;
+}
+
 void Basic_Timer_Update_Dma_Request_Enable(Basic_Timer *basic_timer)
 {
     if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
     {
-        // No valid Basic_Timer peripheral address were given
+        // No valid Basic_Timer peripheral address was given
         return;
     }
 
@@ -130,7 +148,7 @@ void Basic_Timer_Update_Dma_Request_Disable(Basic_Timer *basic_timer)
 {
     if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
     {
-        // No valid Basic_Timer peripheral address were given
+        // No valid Basic_Timer peripheral address was given
         return;
     }
 
@@ -141,7 +159,7 @@ void Basic_Timer_Update_Interrupt_Enable(Basic_Timer *basic_timer)
 {
     if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
     {
-        // No valid Basic_Timer peripheral address were given
+        // No valid Basic_Timer peripheral address was given
         return;
     }
 
@@ -152,7 +170,7 @@ void Basic_Timer_Update_Interrupt_Disable(Basic_Timer *basic_timer)
 {
     if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
     {
-        // No valid Basic_Timer peripheral address were given
+        // No valid Basic_Timer peripheral address was given
         return;
     }
 
@@ -163,7 +181,7 @@ Basic_Timer_Update_Interrupt_Flag_Status Basic_Timer_Get_Update_Interrupt_Flag(B
 {
     if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
     {
-        // No valid Basic_Timer peripheral address were given
+        // No valid Basic_Timer peripheral address was given
         return BASIC_TIMER_UPDATE_INTERRUPT_FLAG_ERROR;
     }
 
@@ -179,7 +197,7 @@ void Basic_Timer_Generate_Update_Event(Basic_Timer *basic_timer)
 {
     if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
     {
-        // No valid Basic_Timer peripheral address were given
+        // No valid Basic_Timer peripheral address was given
         return;
     }
 
@@ -190,7 +208,7 @@ Basic_Timer_Status Basic_Timer_Get_Counter_Value(Basic_Timer *basic_timer, uint1
 {
     if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
     {
-        // No valid Basic_Timer peripheral address were given
+        // No valid Basic_Timer peripheral address was given
         return BASIC_TIMER_STATUS_ERROR;
     }
 
@@ -207,7 +225,7 @@ void Basic_Timer_Set_Prescaler_Value(Basic_Timer *basic_timer, uint16_t psc_valu
 {
     if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
     {
-        // No valid Basic_Timer peripheral address were given
+        // No valid Basic_Timer peripheral address was given
         return;
     }
 
@@ -218,7 +236,7 @@ Basic_Timer_Status Basic_Timer_Get_Prescaler_Value(Basic_Timer *basic_timer, uin
 {
     if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
     {
-        // No valid Basic_Timer peripheral address were given
+        // No valid Basic_Timer peripheral address was given
         return BASIC_TIMER_STATUS_ERROR;
     }
 
@@ -235,7 +253,7 @@ void Basic_Timer_Set_Auto_Reload_Value(Basic_Timer *basic_timer, uint16_t arr_va
 {
     if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
     {
-        // No valid Basic_Timer peripheral address were given
+        // No valid Basic_Timer peripheral address was given
         return;
     }
 
@@ -246,7 +264,7 @@ Basic_Timer_Status Basic_Timer_Get_Auto_Reload_Value(Basic_Timer *basic_timer, u
 {
     if ((basic_timer != TIMER6) && (basic_timer != TIMER7))
     {
-        // No valid Basic_Timer peripheral address were given
+        // No valid Basic_Timer peripheral address was given
         return BASIC_TIMER_STATUS_ERROR;
     }
 
